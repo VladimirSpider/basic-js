@@ -23,11 +23,13 @@ function transform(arr) {
   newArr.forEach((el, index) => {
     endArr.push(el);
     if (el === '--discard-prev') {
+      endArr.pop()
       if (index !== 0) {
         endArr.splice(index - 1, 1);
       }
     }
     if (el === '--double-prev') {
+      endArr.pop()
       if (index !== 0) {
         if (typeof newArr[index - 1] === 'number') {
           endArr.push(newArr[index - 1]);
@@ -35,11 +37,13 @@ function transform(arr) {
       }
     }
     if (el === '--double-next') {
+      endArr.pop()
       if (index < newArr.length - 1) {
         endArr.push(newArr[index + 1]);
       }
     }
     if (el === '--discard-next') {
+      endArr.pop()
       if (index < newArr.length - 1) {
         newArr.splice(index + 1, 1);
       }
