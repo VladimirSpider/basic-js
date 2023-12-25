@@ -28,7 +28,6 @@ function getDNSStats(domains) {
     const piecesOfDomain = domain.split('.').reverse();
     let pieceOfDomain = '';
     for (let i = 0; i < piecesOfDomain.length; i++) {
-      console.log(piecesOfDomain);
       pieceOfDomain += '.' + piecesOfDomain[i];
       if (pieceOfDomain in answer)
         answer[pieceOfDomain]++;
@@ -36,7 +35,7 @@ function getDNSStats(domains) {
         answer[pieceOfDomain] = 1;
     }
   });
-  console.log(answer);
+
   return answer;
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
